@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" />
+	<title>War Room</title>
+	<link rel="stylesheet" href="war-room.css">
+	<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[key here]'
+		async defer></script>
+	<script type="text/javascript" src="unit-tools.js"></script>
+	<script type="text/javascript" src="ui-event-handlers.js"></script>
+	<script type="text/javascript" src="save-load-tools.js"></script>
+	<script type="text/javascript" src="war-room.js"></script>
+	
+</head>
+
+<body onload="initialize()">
+	<div id="ui-container">
+		<div id="ui-map"></div>
+		<div id="ui-panel">
+			<div id="ui-panel-controls">
+				<p id="ui-panel-controls-title">War Room</p>
+				<p>Welcome to Drinking Wind Games' War Room!</p>	
+				<div>
+					<p>Creation Menu:</p>
+					<label for="new-unit-affiliation">Affiliation:</label>
+					<select id="new-unit-affiliation">
+						<option value="friendly">Friendly</option>
+						<option value="hostile">Hostile</option>
+					</select>
+					<br>
+
+					<label for="new-unit-number">Number:</label>
+					<input id="new-unit-number" type="number" value="1" min="1" step="1">
+					<br>
+
+					<label for="new-unit-type">Type:</label>
+					<select id="new-unit-type">
+						<option value="Infantry" data-icon="infantry" data-anchor-x="16" data-anchor-y="12">Infantry</option>
+						<option value="Mechanized Infantry" data-icon="mechanized-infantry" data-anchor-x="16" data-anchor-y="12">Mechanized Infantry</option>
+						<option value="Artillery" data-icon="artillery" data-anchor-x="16" data-anchor-y="12">Artillery</option>
+						<option value="Reconnaissance" data-icon="recon" data-anchor-x="16" data-anchor-y="12">Reconnaissance</option>
+						<option value="Armor" data-icon="armor" data-anchor-x="16" data-anchor-y="12">Armor</option>
+						<option value="Anti-Tank" data-icon="anti-tank" data-anchor-x="16" data-anchor-y="12">Anti-Tank</option>
+						<option value="Headquarters" data-icon="hq" data-anchor-x="1" data-anchor-y="50">Headquarters</option>
+					</select>
+					<br>
+
+					<label for="new-unit-size">Size:</label>
+					<select id="new-unit-size">
+						<option value="Regiment" data-symbol="III">Regiment</option>
+						<option value="Battalion" data-symbol="II">Battalion</option>
+					</select>
+					<br>
+					
+					<input type="button" value="Create Unit" onclick="createUnit()">
+				</div>
+				<div>
+					<p>Friendly Units:</p>
+					<ul id="unit-list-friendly">
+						
+					</ul>
+					<p>Hostile Units:</p>
+					<ul id="unit-list-hostile">
+					
+					</ul>
+				</div>
+				<input type="button" value="Clear All Data" onclick="clearData()">
+				<input type="button" value="Debug" onclick="debugUnits()">
+			</div>
+		</div>	
+	</div>	
+</body>
+</html>
